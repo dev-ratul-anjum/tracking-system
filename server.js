@@ -95,6 +95,16 @@ const fakeTrackingData = {
   }
 };
 
+app.get("/health", (req, res) => {
+  const now = new Date();
+
+  res.status(200).json({
+    status: "ok",
+    timestamp: now.toLocaleTimeString(),
+    message: "Backend is alive!"
+  });
+});
+
 // 👉 Route
 app.get("/track/:id", (req, res) => {
   const { id } = req.params;
